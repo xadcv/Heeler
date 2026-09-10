@@ -1,0 +1,53 @@
+# Pinned exactly, like the Swift package dependencies. Bump deliberately and
+# review changelogs; AGP and Kotlin versions are coupled (AGP 9 bundles Kotlin).
+[versions]
+agp = "9.4.0"
+kotlin = "2.4.20"
+kotlinx-serialization = "1.11.0"
+kotlinx-coroutines = "1.11.0"
+compose-bom = "2026.09.00"
+androidx-activity = "1.13.0"
+androidx-lifecycle = "2.11.0"
+androidx-core = "1.19.0"
+androidx-datastore = "1.2.1"
+jsch = "2.28.7"
+bouncycastle = "1.85.2"
+junit = "6.1.3"
+screenshot = "0.0.1-alpha16"
+
+[libraries]
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
+kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinx-coroutines" }
+kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinx-coroutines" }
+
+# SSH: the mwiede JSch fork. Chosen for its direct-streamlocal@openssh.com
+# channel, PTY exec with window-change, SFTP, and the pluggable Identity that
+# lets Device Key signing stay inside the Android Keystore (ADR 0017).
+jsch = { module = "com.github.mwiede:jsch", version.ref = "jsch" }
+# Ed25519 signature verification for JSch on Android runtimes without a JCA
+# Ed25519 provider; also the Ed25519 implementation behind DeviceKey.
+bouncycastle = { module = "org.bouncycastle:bcprov-jdk18on", version.ref = "bouncycastle" }
+
+androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "androidx-core" }
+androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity" }
+androidx-lifecycle-runtime-compose = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "androidx-lifecycle" }
+androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "androidx-lifecycle" }
+androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "androidx-datastore" }
+compose-bom = { module = "androidx.compose:compose-bom", version.ref = "compose-bom" }
+compose-ui = { module = "androidx.compose.ui:ui" }
+compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
+compose-material3 = { module = "androidx.compose.material3:material3" }
+
+screenshot-validation-api = { module = "com.android.tools.screenshot:screenshot-validation-api", version.ref = "screenshot" }
+compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
+
+junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit" }
+junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+screenshot = { id = "com.android.compose.screenshot", version.ref = "screenshot" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }

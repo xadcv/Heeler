@@ -9,6 +9,12 @@ Entries reference the issue that motivated them.
 
 ### Added
 
+- An Android companion app under `android/` (Kotlin, Jetpack Compose,
+  Android 13–17) built on the same herdr transport design: JSON API over SSH
+  direct-streamlocal channels, TOFU host keys, on-device Ed25519 Device Key,
+  and Kotlin wire types generated from the shared schema snapshot. The first
+  slice covers Hosts, Device Key, Agent list with live status, Agent output
+  and prompting; the interactive terminal is not ported yet. See ADR 0017.
 - Muse appears in Start Agent when the Host has `muse` on PATH. Notifications
   and Live Activities name it Muse, and the Heeler plugin accepts `muse`
   sidebar row overrides. (#297)

@@ -16,7 +16,7 @@ and verifies host keys independently at both hops.
 _Avoid_: bastion, proxy server
 
 **Device Key**:
-The device's SSH identity: an Ed25519 keypair generated on this device. The private key never leaves the Keychain; the public half is what a Host authorizes.
+The device's SSH identity: an Ed25519 keypair generated on this device. The private key never leaves the Keychain (on Android: the seed is stored wrapped by an Android Keystore key, see ADR 0017); the public half is what a Host authorizes.
 _Avoid_: app key, client key
 
 **Pairing**:
